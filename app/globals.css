@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --color-accent: #059669;
+  --color-accent-hover: #047857;
+  --color-accent-light: #ecfdf5;
+  --color-border: #e5e5e5;
+
+  --color-ink: #0e1f17;
+  --color-mist: #eef3f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-light: var(--color-accent-light);
+  --color-border: var(--color-border);
+  --color-ink: var(--color-ink);
+  --color-mist: var(--color-mist);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.prose {
+  color: var(--foreground);
+}
+.prose :where(h1, h2, h3, h4, h5, h6, p, li, strong) {
+  color: var(--foreground);
+}
+.prose a {
+  color: var(--color-accent);
+}
+.prose a:hover {
+  color: var(--color-accent-hover);
+}
+.prose blockquote {
+  border-left-color: var(--color-accent);
+}
+.prose code {
+  color: var(--color-accent-hover);
+  background: var(--color-accent-light);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+.course-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--color-accent);
+}
