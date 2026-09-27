@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/Button";
 import { AssignmentSection } from "./AssignmentSection";
 import DOMPurify from "isomorphic-dompurify";
+import Link from "next/link";
 
 type Resource = {
   id: string;
@@ -114,12 +115,20 @@ export function LessonPlayer({
   return (
     <div className="max-w-3xl mx-auto py-10 space-y-6">
       <div>
-        <button
-          onClick={() => router.push(`/courses/${courseSlug}`)}
-          className="text-sm text-gray-500 hover:text-accent mb-2"
-        >
-          ← {courseTitle}
-        </button>
+        <div className="flex items-center justify-between mb-2">
+          <button
+            onClick={() => router.push(`/courses/${courseSlug}`)}
+            className="text-sm text-gray-500 hover:text-accent"
+          >
+            ← {courseTitle}
+          </button>
+          <Link
+            href={`/courses/${courseSlug}/forum`}
+            className="text-sm bg-accent text-white px-3 py-1 rounded-md transition-colors"
+          >
+            Course Forum
+          </Link>
+        </div>
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-semibold text-foreground">
             {lesson.title}
@@ -195,7 +204,7 @@ export function LessonPlayer({
             <Button
               onClick={() =>
                 router.push(
-                  `/courses/${courseSlug}/learn/${prevLesson.short_id}`
+                  `/courses/${courseSlug}/learn/${prevLesson.short_id}`,
                 )
               }
             >
@@ -214,10 +223,10 @@ export function LessonPlayer({
             {saving
               ? "Saving..."
               : status === "completed"
-              ? nextLesson
-                ? "Next Lesson"
-                : "Course Complete"
-              : "Mark lesson & continue"}
+                ? nextLesson
+                  ? "Next Lesson"
+                  : "Course Complete"
+                : "Mark lesson & continue"}
           </Button>
         </div>
       </div>

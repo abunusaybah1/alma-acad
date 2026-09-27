@@ -9,7 +9,7 @@ export const studentLinks: NavLink[] = [
   { label: "Dashboard", href: "/dashboard" },
   { label: "Courses", href: "/courses" },
   { label: "AI Assistant", href: "#", disabled: true, badge: "Coming Soon" },
-  { label: "Forum", href: "#", disabled: true, badge: "Coming Soon" },
+  { label: "Forum", href: "/forum", badge: "Coming Soon" },
 
   { label: "Profile", href: "/profile" },
   { label: "Certificates", href: "/certificates" },
@@ -22,3 +22,4 @@ export const adminLinks: NavLink[] = [
   { label: "Analytics", href: "/admin/analytics" },
   { label: "Students", href: "/admin/students" },
 ];
+

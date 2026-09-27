@@ -33,33 +33,60 @@ export function CourseActionsMenu({
       )
     )
       return;
-    const { data: course } = await supabase
+    const { data: course, error: fetchError } = await supabase
       .from("courses")
       .select("id")
       .eq("slug", courseSlug)
       .single();
-    if (course) {
-      await supabase
-        .from("courses")
-        .update({ archived_at: new Date().toISOString() })
-        .eq("id", course.id);
-      router.refresh();
+
+    if (fetchError || !course) {
+      alert(`Couldn't find course: ${fetchError?.message}`);
+      return;
     }
+
+    const { error } = await supabase
+      .from("courses")
+      .update({ archived_at: new Date().toISOString() })
+      .eq("id", course.id);
+
+    if (error) {
+      alert(`Couldn't archive course: ${error.message}`);
+      return;
+    }
+
+    setOpen(false);
+    router.refresh();
   }
 
   async function handleRestore() {
-    const { data: course } = await supabase
+    if (
+      !confirm("Restore this course? It'll become visible to students again.")
+    )
+      return;
+
+    const { data: course, error: fetchError } = await supabase
       .from("courses")
       .select("id")
       .eq("slug", courseSlug)
       .single();
-    if (course) {
-      await supabase
-        .from("courses")
-        .update({ archived_at: null })
-        .eq("id", course.id);
-      router.refresh();
+
+    if (fetchError || !course) {
+      alert(`Couldn't find course: ${fetchError?.message}`);
+      return;
     }
+
+    const { error } = await supabase
+      .from("courses")
+      .update({ archived_at: null })
+      .eq("id", course.id);
+
+    if (error) {
+      alert(`Couldn't restore course: ${error.message}`);
+      return;
+    }
+
+    setOpen(false);
+    router.refresh();
   }
 
   return (
