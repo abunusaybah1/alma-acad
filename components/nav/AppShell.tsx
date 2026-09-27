@@ -29,6 +29,7 @@ export function AppShell({
     router.push("/login");
   }
 
+
   return (
     <div className="min-h-screen flex bg-background">
       {/* ===== Desktop Sidebar ===== */}
