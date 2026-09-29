@@ -4,7 +4,6 @@ import { FiArrowRightCircle } from "react-icons/fi";
 export default function LandingPage() {
   return (
     <div className="overflow-hidden">
-      {/* ===== HERO ===== */}
       <section className="relative border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-24 lg:py-28 grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
@@ -15,16 +14,16 @@ export default function LandingPage() {
               className="text-5xl lg:text-6xl font-semibold text-foreground leading-[1.05] tracking-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Learn to ship,
+              Learn to build,
               <br />
               not just to code.
             </h1>
             <p className="text-gray-500 mt-6 text-lg max-w-md leading-relaxed">
               I built this because most courses stop at &quot;here&apos;s how
-              React works&quot; and leave you stuck the moment you try to build
-              something real. At Almattech Academy, each track ends with an
-              actual project, reviewed by an actual mentor... the same way I had
-              to learn it.
+              this tool works&quot; and leave you stuck the moment you try to
+              build something real. At Almattech Academy, each module ends with
+              an actual project, reviewed by an actual mentor... the method I
+              wish I was taught.
             </p>
             <div className="flex items-center gap-4 mt-9">
               <Link
@@ -72,108 +71,22 @@ you
         </div>
       </section>
 
-      {/* ===== TRACKS — emerald tint ===== */}
       <section className="bg-accent-light py-24">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-sm font-mono text-accent mb-2">the path</p>
           <h2
             className="text-3xl lg:text-4xl font-semibold text-foreground mb-4"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Four tracks, in the order that actually makes sense.
+            All modules, in the order that actually makes sense.
           </h2>
           <p className="text-gray-600 max-w-xl mb-14">
-            This is not a random playlist of videos. Each track builds on the
-            one before it, so by the time you hit &quot;Ship&quot;, you&apos;re
-            not guessing — you already know why every piece fits.
+            This is not a random playlist of videos. Each module builds on the
+            one before it, so by the time you start building real projects,
+            you&apos;re not guessing. Rather, you already know why every piece
+            fits.
           </p>
 
-          <div className="grid md:grid-cols-4 gap-px bg-border rounded-lg overflow-hidden border border-border">
-            {[
-              {
-                n: "01",
-                title: "Fundamentals",
-                desc: "HTML, CSS, and JavaScript — written by hand, until you stop needing to look things up every five minutes.",
-              },
-              {
-                n: "02",
-                title: "React",
-                desc: "Not just syntax. The actual thinking behind components and state, so a new codebase doesn't scare you.",
-              },
-              {
-                n: "03",
-                title: "Next.js & Supabase",
-                desc: "A real database, real auth, a real deploy — the parts most tutorials skip because they're the hard parts.",
-              },
-              {
-                n: "04",
-                title: "Ship",
-                desc: "One project, start to finish, reviewed the way a mentor at a real job would review it — with actual feedback, not a checkmark.",
-              },
-            ].map((track) => (
-              <div
-                key={track.n}
-                className="bg-background p-6 hover:bg-accent-light/60 transition-colors"
-              >
-                <span className="font-mono text-accent text-xs border border-accent rounded px-1.5 py-0.5">
-                  {track.n}
-                </span>
-                <h3 className="font-semibold text-foreground mt-3 mb-1.5">
-                  {track.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {track.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== APPROACH — dark ===== */}
-      <section className="relative bg-ink py-28 overflow-hidden">
-        <span
-          className="absolute -top-4 left-6 text-[220px] leading-none font-mono text-white/4 select-none pointer-events-none"
-          aria-hidden
-        >
-          $
-        </span>
-
-        <div className="relative max-w-3xl mx-auto px-6 text-center">
-          <p className="text-sm font-mono text-accent mb-4">why this exists</p>
-          <h2
-            className="text-3xl lg:text-5xl font-semibold text-white leading-[1.15] tracking-tight"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            I started learning to code on a phone. I know exactly which parts of
-            this are confusing, because I sat with the confusion myself.
-          </h2>
-          <p className="text-gray-400 mt-7 text-lg leading-relaxed max-w-xl mx-auto">
-            That&apos;s the whole philosophy here — nothing is explained the way
-            a textbook explains it. It&apos;s explained the way I wish someone
-            had explained it to me, back when I had no laptop, no mentor, and
-            way too many open tabs trying to figure out why my code wasn&apos;t
-            working.
-          </p>
-        </div>
-      </section>
-
-      {/* ===== HOW IT WORKS ===== */}
-      <section id="how-it-works" className="bg-mist py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-sm font-mono text-accent mb-2">how it works</p>
-          <h2
-            className="text-3xl lg:text-4xl font-semibold text-foreground mb-4"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            From sign-up to a project you&apos;re actually proud of.
-          </h2>
-          <p className="text-gray-600 max-w-xl mb-14">
-            No cohorts to wait for, no deadlines you&apos;ll miss because life
-            happened. Just a clear next step, every time you finish one.
-          </p>
-
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="flex flex-wrap gap-4">
             {[
               {
                 n: "01",
@@ -196,7 +109,10 @@ you
                 desc: "Walk away with something in your portfolio you built yourself, not something you copied from a tutorial.",
               },
             ].map((step) => (
-              <div key={step.n} className="border-l-2 border-accent pl-4">
+              <div
+                key={step.n}
+                className="basis-full md:basis-[calc(50%-0.5rem)] lg:basis-[calc(25%-0.75rem)] grow bg-background p-6 rounded-lg border border-border hover:bg-accent-light/60 transition-colors"
+              >
                 <span className="font-mono text-accent text-sm">{step.n}</span>
                 <h3 className="font-semibold text-foreground mt-2 mb-1.5">
                   {step.title}
@@ -210,7 +126,84 @@ you
         </div>
       </section>
 
-      {/* ===== FINAL CTA ===== */}
+      <section className="relative bg-ink py-28 overflow-hidden">
+        <span
+          className="absolute -top-4 left-6 text-[220px] leading-none font-mono text-white/4 select-none pointer-events-none"
+          aria-hidden
+        >
+          $
+        </span>
+
+        <div className="relative max-w-3xl mx-auto px-6 text-center">
+          <h2
+            className="text-3xl lg:text-5xl font-semibold text-white leading-[1.15] tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            I started learning to code on a phone. I know exactly which parts of
+            this are confusing, because I sat with the confusion myself.
+          </h2>
+          <p className="text-gray-400 mt-7 text-lg leading-relaxed max-w-xl mx-auto">
+            That&apos;s the whole philosophy here... Nothing is explained the
+            way a textbook explains it. It&apos;s explained the way I wish
+            someone had explained it to me, back when I had no laptop, no
+            mentor, and no idea what I was doing.
+          </p>
+        </div>
+      </section>
+
+      <section id="how-it-works" className="bg-mist py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2
+            className="text-3xl lg:text-4xl font-semibold text-foreground mb-4"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            From enrollment to projects you&apos;re actually proud of...
+          </h2>
+          <p className="text-gray-600 max-w-xl mb-14">
+            No cohorts to wait for, no deadlines you&apos;ll miss because life
+            happened. Just a clear next step, every time you finish one.
+          </p>
+
+          <div className="flex flex-wrap gap-4">
+            {[
+              {
+                n: "01",
+                title: "Enroll",
+                desc: "Pick the track that matches where you actually are, not where you wish you were.",
+              },
+              {
+                n: "02",
+                title: "Learn at your pace",
+                desc: "Video and text lessons you can revisit as many times as you need — there's no clock running.",
+              },
+              {
+                n: "03",
+                title: "Submit real work",
+                desc: "Push a real project. A mentor actually looks at it and tells you what to fix and why.",
+              },
+              {
+                n: "04",
+                title: "Ship",
+                desc: "Walk away with something in your portfolio you built yourself, not something you copied from a tutorial.",
+              },
+            ].map((step) => (
+              <div
+                key={step.n}
+                className="basis-full md:basis-[calc(50%-0.5rem)] lg:basis-[calc(25%-0.75rem)] grow bg-background p-6 rounded-lg border border-border hover:bg-accent-light/60 transition-colors"
+              >
+                <span className="font-mono text-accent text-sm">{step.n}</span>
+                <h3 className="font-semibold text-foreground mt-2 mb-1.5">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-6">
           <div
@@ -218,14 +211,20 @@ you
             style={{ boxShadow: "10px 10px 0 var(--color-accent)" }}
           >
             <h2
-              className="text-3xl lg:text-4xl font-semibold text-white mb-4"
+              className="text-3xl lg:text-4xl font-semibold text-white mb-7"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Your first project is closer than you think.
+              Let me tell you something...
             </h2>
-            <p className="text-gray-400 mb-7 max-w-md mx-auto">
-              Start free. If you finish the first track and it&apos;s not for
-              you, you&apos;ve lost nothing but a weekend.
+            <p className=" text-white/80 mb-7">
+              Your first project is closer than you think, and it&apos;s going
+              to be closer than you expect.
+            </p>
+
+            <p className="text-white/80 mb-7 mx-auto">
+              I built this because I wish I had a course like this when I was
+              learning to code. It would have saved me years of confusion and
+              frustration. I want to give you that same advantage.
             </p>
             <Link
               href="/courses"
