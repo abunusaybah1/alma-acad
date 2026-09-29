@@ -91,21 +91,21 @@ you
               {
                 n: "01",
                 title: "Enroll",
-                desc: "Pick the track that matches where you actually are, not where you wish you were.",
+                desc: "Sign up in less than a minute, and get immediate access to the first module.",
               },
               {
                 n: "02",
-                title: "Learn at your pace",
-                desc: "Video and text lessons you can revisit as many times as you need — there's no clock running.",
+                title: "Learning",
+                desc: "Learn using interactive video and text lessons you can revisit as many times as you need.",
               },
               {
                 n: "03",
-                title: "Submit real work",
-                desc: "Push a real project. A mentor actually looks at it and tells you what to fix and why.",
+                title: "Assignments",
+                desc: "Submit real work, and get feedback from a mentor who actually looks at it and tells you what to fix and why.",
               },
               {
                 n: "04",
-                title: "Ship",
+                title: "Projects",
                 desc: "Walk away with something in your portfolio you built yourself, not something you copied from a tutorial.",
               },
             ].map((step) => (
@@ -179,17 +179,17 @@ you
               {
                 n: "03",
                 title: "Submit real work",
-                desc: "Push a real project. A mentor actually looks at it and tells you what to fix and why.",
+                desc: "Submit real work, and get feedback from a mentor who actually looks at it and tells you what to fix and why.",
               },
               {
                 n: "04",
-                title: "Ship",
+                title: "Projects",
                 desc: "Walk away with something in your portfolio you built yourself, not something you copied from a tutorial.",
               },
             ].map((step) => (
               <div
                 key={step.n}
-                className="basis-full md:basis-[calc(50%-0.5rem)] lg:basis-[calc(25%-0.75rem)] grow bg-background p-6 rounded-lg border border-border hover:bg-accent-light/60 transition-colors"
+                className="basis-full md:basis-[calc(50%-0.5rem)] lg:basis-[calc(25%-0.75rem)] grow bg-background p-6 rounded-lg border border-border hover:bg-mist transition-colors"
               >
                 <span className="font-mono text-accent text-sm">{step.n}</span>
                 <h3 className="font-semibold text-foreground mt-2 mb-1.5">
