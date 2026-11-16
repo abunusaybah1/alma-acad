@@ -49,33 +49,29 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Already enrolled" }, { status: 400 });
   }
 
-  // ---- FREE COURSE: enroll instantly ----
-  if (course.price_kobo === 0) {
-    if (existing) {
-      await supabase
-        .from("enrollments")
-        .update({ status: "active" })
-        .eq("id", existing.id);
-    } else {
-      await supabase.from("enrollments").insert({
-        user_id: user.id,
-        course_id: courseId,
-        status: "active",
-      });
-    }
-
-   await supabase
-      .from("profiles")
-      .update({ role: "student" })
-      .eq("id", user.id)
-      .eq("role", "member");
-
-    return NextResponse.json({ success: true });
+  // FREE COURSE branch
+  if (existing) {
+    await adminSupabase
+      .from("enrollments")
+      .update({ status: "active" })
+      .eq("id", existing.id);
+  } else {
+    await adminSupabase.from("enrollments").insert({
+      user_id: user.id,
+      course_id: courseId,
+      status: "active",
+    });
   }
 
-  // ---- PAID COURSE: create pending enrollment + Paystack session ----
+  await adminSupabase
+    .from("profiles")
+    .update({ role: "student" })
+    .eq("id", user.id)
+    .eq("role", "member");
+
+  // PAID COURSE branch
   if (!existing) {
-    await supabase.from("enrollments").insert({
+    await adminSupabase.from("enrollments").insert({
       user_id: user.id,
       course_id: courseId,
       status: "pending_payment",
